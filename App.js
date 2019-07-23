@@ -47,8 +47,8 @@ app.post('/item', function(req, res) {
 app.put('/item/:id', function(req, res) {
 	var itemId = req.params.id;
 	var data = req.body.data;
-	res.send('Replacing ' + itemId + ' with ' + data);
-	console.log('Replacing ' + itemId + ' with ' + data);
+	res.send('Replace ' + itemId + ' with ' + data);
+	console.log('Replace ' + itemId + ' with ' + data);
 });
 
 //Update
