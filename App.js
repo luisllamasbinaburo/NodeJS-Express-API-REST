@@ -1,3 +1,4 @@
+// Cargar modulos y crear nueva aplicacion
 var express = require("express"); 
 var cors = require('cors')
 var app = express();
@@ -11,8 +12,8 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 //Ejemplo: GET http://localhost:8080/item
 app.get('/item', function(req, res, next) {
   if(req.query.filter) {
-	next();
-	return;
+   next();
+   return;
   }
   res.send('Get all');
   console.log('Get all');
@@ -37,35 +38,35 @@ app.get('/item', function(req, res) {
 //Create
 //Ejemplo: POST http://localhost:8080/item
 app.post('/item', function(req, res) {
-	var data = req.body.data;
-	res.send('Add ' + data);
-	console.log('Add ' + data);
+   var data = req.body.data;
+   res.send('Add ' + data);
+   console.log('Add ' + data);
 });
 
 //Replace
 //Ejemplo: PUT http://localhost:8080/item/10
 app.put('/item/:id', function(req, res) {
-	var itemId = req.params.id;
-	var data = req.body.data;
-	res.send('Replace ' + itemId + ' with ' + data);
-	console.log('Replace ' + itemId + ' with ' + data);
+   var itemId = req.params.id;
+   var data = req.body.data;
+   res.send('Replace ' + itemId + ' with ' + data);
+   console.log('Replace ' + itemId + ' with ' + data);
 });
 
 //Update
 //Ejemplo: PATCH http://localhost:8080/item/10
 app.patch('/item/:id', function(req, res) {
-	var itemId = req.params.id;
-	var data = req.body.data;
-	res.send('Update ' + itemId + ' with ' + data);
-	console.log('Update ' + itemId + ' with ' + data);
+   var itemId = req.params.id;
+   var data = req.body.data;
+   res.send('Update ' + itemId + ' with ' + data);
+   console.log('Update ' + itemId + ' with ' + data);
 });
 
 //Delete
-//Ejemplo: DEL http://localhost:8080/items
+//Ejemplo: DELETE http://localhost:8080/item
 app.delete('/item/:id', function(req, res) {
-	var itemId = req.params.id;
-	res.send('Delete ' + itemId);
-	console.log('Delete ' + itemId);
+   var itemId = req.params.id;
+   res.send('Delete ' + itemId);
+   console.log('Delete ' + itemId);
 });
   
 var server = app.listen(8080, function () {
